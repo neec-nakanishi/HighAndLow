@@ -8,7 +8,7 @@ public class Player {
 
     String answer() {
         // h または l を入力する
-        System.out.println("High(h) or Low(l)?");
+        System.out.print("High(h) or Low(l)? ");
         Scanner scan = new Scanner(System.in);
         return scan.nextLine();
     }
