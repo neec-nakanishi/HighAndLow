@@ -21,34 +21,21 @@ public class Game {
 
     void start() {
         Card c1 = p.turn(cards);
-        Card c2 = p.turn(cards);
         c1.open();
+        Card c2 = p.turn(cards);
         String ans = p.answer();
         judge(c1, c2, ans);
     }
 
     void judge(Card c1, Card c2, String ans) {
         c2.open();
-        if (ans.equals("h")) {
-            if (c1.number < c2.number) {
+        if ((ans.equals("h") && c1.number < c2.number) ||
+        (ans.equals("l") && c1.number > c2.number) ) {
                 System.out.println("勝ち!!!");
-            } else if (c1.number==c2.number) {
-                System.out.println("引き分け");
-            } else {
-                System.out.println("負け");
-            }
-        }
-        else if (ans.equals("l")) {
-            if (c1.number > c2.number) {
-                System.out.println("勝ち!!!");
-            } else if (c1.number==c2.number) {
-                System.out.println("引き分け");
-            } else {
-                System.out.println("負け");
-            }
-        }
-        else {
-            System.out.println("やり直し");
+        } else if (c1.number==c2.number) {
+            System.out.println("引き分け");
+        } else {
+            System.out.println("負け");
         }
     }
 }
